@@ -1,0 +1,51 @@
+<html lang="en">
+	<head>
+		<title>Inktober 2025</title>
+		<script src="https://cdn.jsdelivr.net/npm/q5@3.3.3/q5.min.js"></script>
+		<script>
+			function toggleVisible(toggle = false) {
+                const handleCanvas = document.getElementsByClassName("q5-normal")[0]
+                if (handleCanvas) {
+					handleCanvas.style.visibility = toggle ? "visible" : "hidden"
+                }
+			}
+			function loadDay() {
+				const selectorValue = document.getElementById("daySelector").value
+				const handleHead = document.getElementsByTagName("head")[0]
+				const handleBody = document.getElementsByTagName("body")[0]
+				const hasScript = selectorValue === ""
+				const handleScript = hasScript ? document.getElementById("day") : document.createElement("script")
+                if (hasScript) {
+					window.quit()
+					const handleCanvas = document.getElementsByClassName("q5-normal")[0]
+					handleBody.removeChild(handleCanvas)
+                    handleHead.removeChild(handleScript)
+                    return
+                }
+                const newValues = { id: "day", type: "module", src: selectorValue }
+                Object.entries(newValues).forEach(([key, value]) => { handleScript[key] = value })
+				handleHead.appendChild(handleScript)
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<div>
+				<label for="daySelector">Inktober Day: </label>
+				<select id="daySelector" onchange="loadDay()">
+					<option value=""></option>
+					<option value="Day 1 Mustache.js">Day 1 Mustache</option>
+				</select>
+			</div>
+		</div>
+	</body>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+			margin: 1rem;
+		}
+	</style>
+</html>
