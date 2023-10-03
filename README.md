@@ -6,7 +6,8 @@ Creating generative art in Processing 4 for Inktober.
 
 ## Examples
 
-https://github.com/vess-dev/Inktober/blob/main/2023/Day01Dream/Day01Dream.mp4
+![Day 1, Dream](https://github.com/vess-dev/Inktober/assets/33204181/994192c8-7149-45a4-8082-b36cdc0997dc
+)
 
 ## Completion
 
