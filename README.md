@@ -1,8 +1,12 @@
 # Inktober
 
-Inktober 2023 Prompts
+Creating generative art in Processing 4 for Inktober.
 
 ![2023](2023/Prompts.png)
+
+## Examples
+
+![Day 01 Dream](https://github.com/vess-dev/Inktober/blob/main/2023/Day01Dream/Day01Dream.mp4)
 
 ## Completion
 
