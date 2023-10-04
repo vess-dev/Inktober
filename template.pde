@@ -37,6 +37,7 @@ void settings() {
 
 void setup() {
   surface.setTitle(WINDOW_TITLE);
+  background(255);
   noStroke();
   video_handle = new VideoExport(this, FILE_TITLE);
   video_toggle = false;
@@ -46,6 +47,7 @@ void setup() {
 // Draw loop per frame.
 
 void draw() {
+  background(255);
   if (video_toggle) {
     video_handle.saveFrame();
   }

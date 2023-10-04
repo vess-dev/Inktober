@@ -24,6 +24,7 @@ ArrayList<Bokeh> bokeh_list = new ArrayList<Bokeh>();
 //========================================================================================================================
 // Classes.
 
+// A bokeh is a transparent circle.
 class Bokeh {
   
   float xpos;
@@ -52,6 +53,8 @@ class Bokeh {
     this.rgb = new float[]{random(255), random(255), random(255)};
   }
   
+  // A bokeh should become more opaque, hit a cap, then become more transparent.
+  // Once it is once again invisible, it should regenerate itself somewhere else.
   void update() {
     fill(this.rgb[0], this.rgb[1], this.rgb[2], this.glass);
     circle(this.xpos, this.ypos, this.size);
@@ -81,6 +84,7 @@ void settings() {
 
 void setup() {
   surface.setTitle(WINDOW_TITLE);
+  background(255);
   noStroke();
   video_handle = new VideoExport(this, FILE_TITLE);
   video_toggle = false;
