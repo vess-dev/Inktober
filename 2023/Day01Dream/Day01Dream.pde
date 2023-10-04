@@ -1,10 +1,9 @@
 //========================================================================================================================
-// Day 1, "Dream": Starting to learn Processing, keeping it simple with a bokeh effect.
+// Day 1, Dream: Starting to learn Processing, keeping it simple with a bokeh effect.
 //========================================================================================================================
 // Imports.
 
 import com.hamoid.*;
-import gifAnimation.*;
 import java.util.ArrayList;
 
 //========================================================================================================================
@@ -14,7 +13,7 @@ int WINDOW_SIZE = 600;
 String WINDOW_TITLE = "Day 1: \"Bokeh Dreams\"";
 String FILE_TITLE = "Day01Dream.mp4";
 VideoExport video_handle;
-boolean video_toggle;
+int video_toggle;
 
 //========================================================================================================================
 // Sketch globals.
@@ -87,7 +86,7 @@ void setup() {
   background(255);
   noStroke();
   video_handle = new VideoExport(this, FILE_TITLE);
-  video_toggle = false;
+  video_toggle = 0;
   for (int temp_itr = 0; temp_itr < 300; temp_itr++) {
     bokeh_list.add(new Bokeh());
   }
@@ -100,8 +99,11 @@ void draw() {
   for (Bokeh temp_bokeh: bokeh_list) {
     temp_bokeh.update();
   }
-  if (video_toggle) {
+  if (video_toggle == 1) {
     video_handle.saveFrame();
+  } else if (video_toggle == 2) {
+    video_handle.endMovie();
+    exit();
   }
 }
 
@@ -109,12 +111,11 @@ void draw() {
 // Finish with the sketch.
 
 void mousePressed() {
-  if (!video_toggle) {
+  if (video_toggle == 0) {
     video_handle.startMovie();
-    video_toggle = true;
-  } else if (video_toggle) {
-    video_handle.endMovie();
-    exit();
+    video_toggle = 1;
+  } else if (video_toggle == 1) {
+    video_toggle = 2;
   }
 }
 

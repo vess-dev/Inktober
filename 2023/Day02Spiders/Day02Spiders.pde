@@ -4,7 +4,6 @@
 // Imports.
 
 import com.hamoid.*;
-import gifAnimation.*;
 import java.util.ArrayList;
 
 //========================================================================================================================
@@ -14,7 +13,7 @@ int WINDOW_SIZE = 600;
 String WINDOW_TITLE = "Day 2: \"Webbing\"";
 String FILE_TITLE = "Day02Spiders.mp4";
 VideoExport video_handle;
-boolean video_toggle;
+int video_toggle;
 
 //========================================================================================================================
 // Sketch globals.
@@ -70,7 +69,7 @@ void setup() {
   background(255);
   noStroke();
   video_handle = new VideoExport(this, FILE_TITLE);
-  video_toggle = false;
+  video_toggle = 0;
   // Spawn the first Skitter in the middle of the screen.
   int sketch_mid = WINDOW_SIZE/2;
   skitter_list.add(new Skitter(sketch_mid, sketch_mid));
@@ -87,8 +86,11 @@ void draw() {
   // Keep a new Skitter list so they don't conflict mid loop.
   skitter_list.addAll(skitter_new);
   skitter_new.clear();
-  if (video_toggle) {
+  if (video_toggle == 1) {
     video_handle.saveFrame();
+  } else if (video_toggle == 2) {
+    video_handle.endMovie();
+    exit();
   }
 }
 
@@ -96,12 +98,11 @@ void draw() {
 // Finish with the sketch.
 
 void mousePressed() {
-  if (!video_toggle) {
+  if (video_toggle == 0) {
     video_handle.startMovie();
-    video_toggle = true;
-  } else if (video_toggle) {
-    video_handle.endMovie();
-    exit();
+    video_toggle = 1;
+  } else if (video_toggle == 1) {
+    video_toggle = 2;
   }
 }
 
