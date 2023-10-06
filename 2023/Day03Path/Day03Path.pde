@@ -16,17 +16,17 @@ VideoExport video_handle;
 //========================================================================================================================
 // Sketch globals.
 
-PImage handle_image;
-float curr_x;
-float curr_y;
-int counter;
+PImage handle_image = loadImage("Path.jpg");
+float curr_x = 0;
+float curr_y = 0;
+int time_count = 0;
 
 //========================================================================================================================
 // Functions.
 
 void line(float in_xpos, float in_ypos) {
-  float start_xpos = random(600);
-  float start_ypos = 600;
+  float start_xpos = random(WINDOW_SIZE);
+  float start_ypos = WINDOW_SIZE;
   color pixel_color = handle_image.pixels[int(in_ypos) * WINDOW_SIZE + int(in_xpos)];
   stroke(pixel_color);
   line(start_xpos, start_ypos, in_xpos, in_ypos);
@@ -45,13 +45,9 @@ void settings() {
 void setup() {
   surface.setTitle(WINDOW_TITLE);
   background(0);
-  video_handle = new VideoExport(this, FILE_TITLE);
-  handle_image = loadImage("Path.jpg");
-  handle_image.loadPixels();
-  curr_x = 0;
-  curr_y = 0;
-  counter = 0;
   strokeWeight(10);
+  handle_image.loadPixels();
+  video_handle = new VideoExport(this, FILE_TITLE);
   video_handle.startMovie();
 }
 
@@ -64,14 +60,14 @@ void draw() {
   if (curr_x == 0) {
     curr_y += 5;
   }
-  if (curr_y >= 600) {
+  if (curr_y >= WINDOW_SIZE) {
     video_handle.endMovie();
     exit();
   }
-  if (counter == 0) {
+  if (time_count == 0) {
     video_handle.saveFrame();
   }
-  counter = (counter + 1) % 10;
+  time_count = (time_count + 1) % 10;
 }
 
 //========================================================================================================================

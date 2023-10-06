@@ -4,7 +4,6 @@
 // Imports.
 
 import com.hamoid.*;
-import gifAnimation.*;
 
 //========================================================================================================================
 // Template globals.
@@ -13,7 +12,7 @@ int WINDOW_SIZE = 600;
 String WINDOW_TITLE = "Day 1: \"\"";
 String FILE_TITLE = "Day01Dream.mp4";
 VideoExport video_handle;
-int video_toggle;
+boolean video_toggle = false;
 
 //========================================================================================================================
 // Sketch globals.
@@ -40,7 +39,6 @@ void setup() {
   background(255);
   noStroke();
   video_handle = new VideoExport(this, FILE_TITLE);
-  video_toggle = 0;
 }
 
 //========================================================================================================================
@@ -48,11 +46,8 @@ void setup() {
 
 void draw() {
   background(255);
-  if (video_toggle == 1) {
+  if (video_toggle) {
     video_handle.saveFrame();
-  } else if (video_toggle == 2) {
-    video_handle.endMovie();
-    exit();
   }
 }
 
@@ -60,11 +55,12 @@ void draw() {
 // Finish with the sketch.
 
 void mousePressed() {
-  if (video_toggle == 0) {
+  if (!video_toggle) {
     video_handle.startMovie();
-    video_toggle = 1;
-  } else if (video_toggle == 1) {
-    video_toggle = 2;
+    video_toggle = true;
+  } else {
+    video_handle.endMovie();
+    exit();
   }
 }
 

@@ -13,7 +13,7 @@ int WINDOW_SIZE = 600;
 String WINDOW_TITLE = "Day 1: \"Bokeh Dreams\"";
 String FILE_TITLE = "Day01Dream.mp4";
 VideoExport video_handle;
-int video_toggle;
+boolean video_toggle = false;
 
 //========================================================================================================================
 // Sketch globals.
@@ -45,7 +45,7 @@ class Bokeh {
     this.ypos = random(WINDOW_SIZE);
     this.rate = 3;
     this.glass = 0;
-    this.cap = random(50,100);
+    this.cap = random(50, 100);
     this.toggle = false;
     this.done = false;
     this.size = random(100, 200);
@@ -85,8 +85,6 @@ void setup() {
   surface.setTitle(WINDOW_TITLE);
   background(255);
   noStroke();
-  video_handle = new VideoExport(this, FILE_TITLE);
-  video_toggle = 0;
   for (int temp_itr = 0; temp_itr < 300; temp_itr++) {
     bokeh_list.add(new Bokeh());
   }
@@ -99,23 +97,22 @@ void draw() {
   for (Bokeh temp_bokeh: bokeh_list) {
     temp_bokeh.update();
   }
-  if (video_toggle == 1) {
+  if (video_toggle) {
     video_handle.saveFrame();
-  } else if (video_toggle == 2) {
-    video_handle.endMovie();
-    exit();
   }
+  video_handle = new VideoExport(this, FILE_TITLE);
 }
 
 //========================================================================================================================
 // Finish with the sketch.
 
 void mousePressed() {
-  if (video_toggle == 0) {
+  if (!video_toggle) {
     video_handle.startMovie();
-    video_toggle = 1;
-  } else if (video_toggle == 1) {
-    video_toggle = 2;
+    video_toggle = true;
+  } else {
+    video_handle.endMovie();
+    exit();
   }
 }
 
