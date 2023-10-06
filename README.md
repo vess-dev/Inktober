@@ -31,8 +31,7 @@ Each year folder contains the following structure:
 In each of the day folders you will find these files:
 
 - Day\[number\]\[prompt\].pde : The Processing code for that day.
-- Day\[number\]\[prompt\].mp4 : A rendered short mp4 of the code.
-sketch.properties : A basic config file that Processing keeps.
+- Day\[number\]\[prompt\].mp4 : A short rendered mp4 of the code.
 
 ## License
 
