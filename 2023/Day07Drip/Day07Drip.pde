@@ -92,7 +92,7 @@ class Rain {
     this.y1pos += this.vel;
     this.x2pos -= this.vel;
     this.y2pos += this.vel;
-    if (this.y2pos > 600) {
+    if (this.y2pos > WINDOW_SIZE) {
       move();
     }
   }
