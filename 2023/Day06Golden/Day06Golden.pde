@@ -55,13 +55,13 @@ class Ribbon {
     if (this.type == Type.VERT) {
       strokeWeight(ribbon_size);
       stroke(253, 208, 23);
-      bezier(this.xpos,this.ypos-offset_size,   WINDOW_SIZE*0.25,this.ypos+flux_size,   WINDOW_SIZE*0.75,this.ypos-flux_size,   600,this.ypos-offset_size);
-      this.ypos = (this.ypos + ribbon_vel) % (600 + offset_size);
+      bezier(this.xpos,this.ypos-offset_size,   WINDOW_SIZE*0.25,this.ypos+flux_size,   WINDOW_SIZE*0.75,this.ypos-flux_size,   WINDOW_SIZE,this.ypos-offset_size);
+      this.ypos = (this.ypos + ribbon_vel) % (WINDOW_SIZE + offset_size);
     } else {
       strokeWeight(ribbon_size);
       stroke(251, 177, 23);
-      bezier(this.xpos-offset_size,this.ypos,   this.xpos+flux_size,WINDOW_SIZE*0.25,   this.xpos-flux_size,WINDOW_SIZE*0.75,   this.xpos-offset_size,600);
-      this.xpos = (this.xpos + ribbon_vel) % (600 + offset_size);
+      bezier(this.xpos-offset_size,this.ypos,   this.xpos+flux_size,WINDOW_SIZE*0.25,   this.xpos-flux_size,WINDOW_SIZE*0.75,   this.xpos-offset_size,WINDOW_SIZE);
+      this.xpos = (this.xpos + ribbon_vel) % (WINDOW_SIZE + offset_size);
     }
   }
   
@@ -94,7 +94,7 @@ void setup() {
 // Draw loop per frame.
 
 void draw() {
-  for (Ribbon temp_ribbon : ribbon_list) {
+  for (Ribbon temp_ribbon: ribbon_list) {
     temp_ribbon.update();
   }
   video_handle.saveFrame();

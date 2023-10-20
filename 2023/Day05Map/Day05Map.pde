@@ -97,7 +97,7 @@ void setup() {
 
 void draw() {
   background(255);
-  for (Box temp_box : box_list) {
+  for (Box temp_box: box_list) {
     temp_box.update();
   }
   curr_rotation += 2;

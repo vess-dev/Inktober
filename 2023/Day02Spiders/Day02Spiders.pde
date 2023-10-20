@@ -79,7 +79,7 @@ void setup() {
 
 void draw() {
   //background(255);
-  for (Skitter temp_skit : skitter_list) {
+  for (Skitter temp_skit: skitter_list) {
     temp_skit.update();
   }
   // Keep a new Skitter list so they don't conflict mid loop.
