@@ -1,5 +1,5 @@
 //========================================================================================================================
-// Day 6, Golen: I wanted to interlace multiple curved lines, like ribbons, that pass through each other.
+// Day 6, Golden: I wanted to interlace multiple curved lines, like ribbons, that pass through each other.
 //========================================================================================================================
 // Imports.
 
@@ -64,6 +64,7 @@ class Ribbon {
       this.xpos = (this.xpos + ribbon_vel) % (600 + offset_size);
     }
   }
+  
 }
 
 //========================================================================================================================
