@@ -12,7 +12,7 @@ https://github.com/vess-dev/Inktober/assets/33204181/81b90433-63e1-48f9-b235-815
 
 ## Completion
 
-- 2023 : 8/31 days complete in Processing 4.
+- 2023 : 9/31 days complete in Processing 4.
 
 ## Requirements
 
@@ -34,6 +34,10 @@ In each of the day folders you will find these files:
 
 - Day\[number\]\[prompt\].pde : The Processing code for that day.
 - Day\[number\]\[prompt\].mp4 : A short rendered mp4 of the code.
+
+## Credit
+
+Day 2, Path: https://unsplash.com/photos/green-palm-trees-near-brown-pathway-FbTMcaMhb1Y
 
 ## License
 
