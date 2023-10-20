@@ -8,6 +8,8 @@ Creating generative art in Processing 4 for Inktober.
 
 https://github.com/vess-dev/Inktober/assets/33204181/994192c8-7149-45a4-8082-b36cdc0997dc
 
+https://github.com/vess-dev/Inktober/assets/33204181/81b90433-63e1-48f9-b235-815934efdda6
+
 ## Completion
 
 - 2023 : 6/31 days complete in Processing 4.
