@@ -97,7 +97,6 @@ void setup() {
 // Draw loop per frame.
 
 void draw() {
-  //background(255);
   for (Box temp_box : box_list) {
     temp_box.update();
   }

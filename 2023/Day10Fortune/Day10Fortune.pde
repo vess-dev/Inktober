@@ -19,6 +19,7 @@ VideoExport video_handle;
 
 ArrayList<Clover> clover_list = new ArrayList<Clover>();
 float clover_size = 50;
+// Allow clovers to rotate in opposite directions.
 float[] vel_list = {-2, -1, 1, 2};
 
 //========================================================================================================================
@@ -35,11 +36,13 @@ class Clover {
   Clover() {
     this.xpos = random(WINDOW_SIZE);
     this.ypos = random(WINDOW_SIZE);
+    // Have a darker green border.
     this.green = random(20, 200);
     this.dark = this.green + 20;
     this.vel = vel_list[int(random(vel_list.length))];
   }
   
+  // Draw one of the leaves, which is two curves and a line really.
   void leaf() {
     bezier(0, 0, -(clover_size*1.2), -clover_size/2, -clover_size/3, -(clover_size*1.5), 0, -clover_size);
     bezier(0, 0, (clover_size*1.2), -clover_size/2, clover_size/3, -(clover_size*1.5), 0, -clover_size);
@@ -54,6 +57,7 @@ class Clover {
     stroke(0, this.dark, 0);
     strokeWeight(5);
     fill(0, this.green, 0);
+    // Repeat four times for a clover.
     for (int temp_count = 0; temp_count != 4; temp_count++) {
       leaf();
       rotate(HALF_PI);
