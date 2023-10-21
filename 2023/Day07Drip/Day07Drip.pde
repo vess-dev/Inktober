@@ -100,7 +100,7 @@ class Rain {
 }
 
 //========================================================================================================================
-// Class for the Lightning strikes.
+// Class for the lightning strikes.
 
 class Strike {
   

@@ -1,44 +1,62 @@
 //========================================================================================================================
-// Day 11, Wander: I ended up making a weird symmetrical butterfly using bezier curves, and so I made it jump around.
+// Day 12, Spicey: I want to make a spicey bonfire made of little flames that shift in color and wiggle.
 //========================================================================================================================
 // Imports.
 
 import com.hamoid.*;
+import java.util.ArrayList;
 
 //========================================================================================================================
 // Template globals.
 
 int WINDOW_SIZE = 600;
-String WINDOW_TITLE = "Day 11: \"Wandering Butterflies\"";
-String FILE_TITLE = "Day11Wander.mp4";
+String WINDOW_TITLE = "Day 12: \"Sputtering Flames\"";
+String FILE_TITLE = "Day12Spicey.mp4";
 VideoExport video_handle;
 
 //========================================================================================================================
 // Sketch globals.
 
-float rotation_val = 0;
-float target_size = WINDOW_SIZE/10;
+ArrayList<Flame> flame_list = new ArrayList<Flame>();
+float flame_size = 100;
+float flame_third = flame_size/3;
+float hue_shift = 10;
 
 //========================================================================================================================
-// Draw a flutterfly buttershy.
+// Classes.
 
-void flutter() {
-  // The control points for the bezier curve.
-  float target_x1pos = random(target_size);
-  float target_y1pos = random(target_size);
-  float target_x2pos = random(target_size);
-  float target_y2pos = random(target_size);
-  pushMatrix();
-  translate(random(WINDOW_SIZE), random(WINDOW_SIZE));
-  rotate(radians(rotation_val));
-  rotation_val += 1;
-  stroke(random(255), random(255), random(255));
-  // The wings of the butterfly.
-  bezier(0, 0, target_x1pos, target_y1pos, target_x2pos, target_y2pos, 0, 0);
-  bezier(0, 0, target_x1pos, -target_y1pos, target_x2pos, -target_y2pos, 0, 0);
-  bezier(0, 0, -target_x1pos, target_y1pos, -target_x2pos, target_y2pos, 0, 0);
-  bezier(0, 0, -target_x1pos, -target_y1pos, -target_x2pos, -target_y2pos, 0, 0);
-  popMatrix();
+class Flame {
+  
+  float xpos;
+  float ypos;
+  float red;
+  float shift;
+ 
+  Flame() {
+    this.xpos = random(WINDOW_SIZE);
+    this.ypos = random(WINDOW_SIZE) + random(flame_size);
+    this.red = random(200);
+    this.shift = 0;
+  }
+  
+  void update() {
+    float color_shift = random(5, 10);
+    stroke(this.red, color_shift, color_shift);
+    fill(this.red, color_shift, color_shift);
+    pushMatrix();
+    translate(this.xpos, this.ypos);
+    // Give the flames some sputter.
+    bezier(1,0, -flame_third*2,-flame_third, -this.shift,(-flame_third*2) + random(flame_third), 0,-flame_size);
+    bezier(-1,0, flame_third*2,-flame_third, this.shift,(-flame_third*2) + random(flame_third), 0,-flame_size);
+    popMatrix();
+    // Shift the sides and the red hue of the flames.
+    this.shift = (this.shift + random(-hue_shift*2, hue_shift*2)) % 20;
+    this.red = (this.red + random(-hue_shift, hue_shift)) % 200;
+    if (this.red <= 20) {
+      this.red = 20;
+    }
+  }
+
 }
 
 //========================================================================================================================
@@ -54,8 +72,9 @@ void settings() {
 void setup() {
   surface.setTitle(WINDOW_TITLE);
   background(0);
-  strokeWeight(3);
-  noFill();
+  for (int temp_count = 0; temp_count != WINDOW_SIZE + 100; temp_count++) {
+    flame_list.add(new Flame());
+  }
   video_handle = new VideoExport(this, FILE_TITLE);
   video_handle.startMovie();
 }
@@ -64,8 +83,9 @@ void setup() {
 // Draw loop per frame.
 
 void draw() {
-  for (int temp_count = 0; temp_count != 10; temp_count++) {
-    flutter();
+  background(0);
+  for (Flame temp_flame: flame_list) {
+    temp_flame.update();
   }
   video_handle.saveFrame();
 }
