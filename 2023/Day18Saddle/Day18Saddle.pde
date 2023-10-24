@@ -21,7 +21,7 @@ Saddle handle_saddle;
 float window_part = WINDOW_SIZE/6;
 
 //========================================================================================================================
-// Class for a realistic angel.
+// Class for a simple animated saddle.
 
 class Saddle {
   
