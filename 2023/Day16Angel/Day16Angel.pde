@@ -51,7 +51,7 @@ class Angel {
   
   void orb(float in_xpos, float in_ypos, float in_zpos) {
     pushMatrix();
-    fill(this.hue[0], this.hue[1], this.hue[2], 10);
+    fill(this.hue[0], this.hue[1], this.hue[2]);
     translate(-in_xpos, in_ypos, in_zpos);
     sphere(orb_size);
     popMatrix();
