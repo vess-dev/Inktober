@@ -62,7 +62,6 @@ class Smile {
   }
   
   void update() {
-    System.out.println(Arrays.toString(this.smile_left));
     stroke(this.rhue, 0, 0);
     // Draw the smile then the eyes. No particular reason as to the order.
     bezier(smile_left[0], smile_left[1], control_sleft[0], control_sleft[1], control_sright[0], control_sright[1], smile_right[0], smile_right[1]);
