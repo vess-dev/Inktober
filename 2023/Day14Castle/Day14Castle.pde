@@ -44,22 +44,22 @@ class Castle {
     int spawn_type = int(random(4));
     float castle_speed = random(vel_min, vel_max);
     switch (spawn_type) {
-      case 0:
+      case 0: // Moving left to right.
         this.xpos = -castle_bound;
         this.ypos = random(WINDOW_SIZE);
         this.xvel = castle_speed;
         break;
-      case 1:
+      case 1: // Moving top to bottom.
         this.xpos = random(WINDOW_SIZE);
         this.ypos = -castle_bound;
         this.yvel = castle_speed;
         break;
-      case 2:
+      case 2: // Moving right to left.
         this.xpos = WINDOW_SIZE + castle_bound;
         this.ypos = random(WINDOW_SIZE);
         this.xvel = -castle_speed;
         break;
-      case 3:
+      case 3: // Moving bottom to top.
         this.xpos = random(WINDOW_SIZE);
         this.ypos = WINDOW_SIZE + castle_bound;
         this.yvel = -castle_speed;
