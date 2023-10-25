@@ -59,6 +59,7 @@ class Flake {
     this.xpos = xnew;
     this.ypos = ynew;
     change();
+    // Make it harder for newer flakes to breed more flakes.
     float breed_chance = int(random(this.breed));
     if (breed_chance == 0) {
       flake_new.add(new Flake(this.xpos, this.ypos, this.breed + 1));
@@ -66,6 +67,7 @@ class Flake {
   }
   
   void update() {
+    // A delay so we can watch it progress.
     this.timer = (this.timer + 1) % 10;
     if (this.timer == 0) {
       grow();
@@ -97,6 +99,7 @@ void setup() {
 // Draw loop per frame.
 
 void draw() {
+  // Check if all the flakes are off the screen yet.
   boolean toggle_test = true;
   for (Flake temp_flake: flake_list) {
     temp_flake.update();
@@ -104,6 +107,7 @@ void draw() {
       toggle_test = false;
     }
   }
+  // Kill the video if all the flakes are off the screen.
   if (toggle_test) {
     video_handle.saveFrame();
     video_handle.endMovie();
