@@ -12,7 +12,7 @@ https://github.com/vess-dev/Inktober/assets/33204181/81b90433-63e1-48f9-b235-815
 
 ## Completion
 
-- 2023 : 17/31 days complete in Processing 4.
+- 2023 : 26/31 days complete in Processing 4.
 
 ## Requirements
 
@@ -38,6 +38,7 @@ In each of the day folders you will find these files:
 ## Credit
 
 Day 2, Path: https://unsplash.com/photos/green-palm-trees-near-brown-pathway-FbTMcaMhb1Y
+Day 26, Remove: https://unsplash.com/photos/woman-in-black-dress-sitting-on-concrete-bench-during-daytime-GMeUXX-L7uE
 
 ## License
 
