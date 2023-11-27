@@ -12,7 +12,7 @@ https://github.com/vess-dev/Inktober/assets/33204181/81b90433-63e1-48f9-b235-815
 
 ## Completion
 
-- 2023 : 27/31 days complete in Processing 4.
+- 2023 : 31/31 days complete in Processing 4. [DONE]
 
 ## Requirements
 
