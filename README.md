@@ -38,7 +38,9 @@ In each of the day folders you will find these files:
 ## Credit
 
 Day 2, Path: https://unsplash.com/photos/green-palm-trees-near-brown-pathway-FbTMcaMhb1Y
+
 Day 26, Remove: https://unsplash.com/photos/woman-in-black-dress-sitting-on-concrete-bench-during-daytime-GMeUXX-L7uE
+
 Day 27, Beast: https://clipart-library.com/clip-art/garden-gnome-silhouette-14.htm
 
 ## License
