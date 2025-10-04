@@ -23,6 +23,7 @@ https://github.com/vess-dev/Inktober/assets/33204181/81b90433-63e1-48f9-b235-815
 
 In the root level directory of this project:
 
+- Inktober 2023.mp4 : A complete render of the 2023 entries.
 - template.pde : A simple template to reuse for each 2023 day.
 - template.js : A simple template to resuse for each 2025 day.
 
