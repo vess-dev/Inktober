@@ -1,6 +1,6 @@
 # Inktober
 
-Creating generative art in Processing 4 for Inktober.
+Creating varied art for Inktober.
 
 ![2023](2023/Prompts.png)
 
@@ -13,27 +13,37 @@ https://github.com/vess-dev/Inktober/assets/33204181/81b90433-63e1-48f9-b235-815
 ## Completion
 
 - 2023 : 31/31 days complete in Processing 4. [DONE]
+- 2025 : 1/31 days complete in q5.
 
 ## Requirements
 
-- Processing 4 installed.
-- Java mode enabled.
+- 2023: Processing 4 installed and Java mode.
 
 ## Directory
 
 In the root level directory of this project:
 
-- template.pde : A simple template to reuse for each day.
+- template.pde : A simple template to reuse for each 2023 day.
+- template.js : A simple template to resuse for each 2025 day.
 
-Each year folder contains the following structure:
+The 2023 folder contains the following structure:
 
-- Prompts.png : That year's daily prompt list for each day.
+- Prompts.png : The year's daily prompt list for each day.
 - Day\[number\]\[prompt\] : A folder containing code for that day.
 
 In each of the day folders you will find these files:
 
 - Day\[number\]\[prompt\].pde : The Processing code for that day.
 - Day\[number\]\[prompt\].mp4 : A short rendered mp4 of the code.
+
+The 2025 folder contains the follow structure:
+
+- Prompts.png : The year's daily prompt list for each day.
+- Day \[number\] \[prompt\].js : The Javascript code for that day.
+
+In the Output folder you will find thse files:
+
+- Day \[number\] \[prompt\].mp4 : A short rendered mp4 of the code.
 
 ## Credit
 
